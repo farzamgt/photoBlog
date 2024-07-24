@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+<h1>Categories</h1>
+
+<!-- Form to create a new post -->
+<h2>Create a New Post</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Post</button>
+</form>
+
+<!-- Display categories -->
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'post_list' category_id=category.id %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
