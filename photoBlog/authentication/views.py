@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import  AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
@@ -18,10 +19,10 @@ def login_view(request):
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
-            login(request, user)
-            next_url = request.POST.get('next')  # Get the 'next' URL
-            if not next_url:
-                next_url = request.GET.get('next', 'homepage')  # Use 'homepage' as default if 'next' is not provided
+            auth_login(request, user)
+            next_url = request.POST.get('next', 'homepage')
+            if not next_url or next_url == request.path:  # Handle empty or same path case
+                next_url = 'homepage'
             return redirect(next_url)
     else:
         form = AuthenticationForm()

@@ -53,7 +53,8 @@ def post_create(request):
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm()
-    return render(request, 'posts/post_form.html', {'form': form})
+    return render(request, 'posts/create_post.html', {'form': form})
+
 
 @login_required
 def post_update(request, post_id):
@@ -67,7 +68,7 @@ def post_update(request, post_id):
             return redirect('post_detail', post_id=post.id)
     else:
         form = PostForm(instance=post)
-    return render(request, 'posts/post_form.html', {'form': form})
+    return render(request, 'posts/create_post.html', {'form': form})
 
 @login_required
 def add_comment(request, post_id):
