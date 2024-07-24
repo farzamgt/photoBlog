@@ -3,11 +3,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import  AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+from posts.models import Category
 
 
 def homepage(request):
+    categories = Category.objects.all()  # Fetch all categories
     return render(request, 'homepage.html', {
         'user': request.user,
+        'categories': categories,  # Pass categories to the template
     })
 
 def login_view(request):
@@ -16,7 +19,10 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('homepage') 
+            next_url = request.POST.get('next')  # Get the 'next' URL
+            if not next_url:
+                next_url = request.GET.get('next', 'homepage')  # Use 'homepage' as default if 'next' is not provided
+            return redirect(next_url)
     else:
         form = AuthenticationForm()
     return render(request, 'authentication/login.html', {'form': form})
