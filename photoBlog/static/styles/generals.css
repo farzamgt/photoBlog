@@ -1,0 +1,54 @@
+/* RESETS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(171, 181, 150);
+    --secondary-color: rgb(133, 133, 133);  
+    --light-color: rgb(255, 255, 255); 
+    --dark-color: rgb(47, 47, 47);
+    --text-dark-color: rgb(77, 77, 77);
+    --text-light-color: rgb(153, 153, 153);
+    --title-color: rgb(153, 153, 153);
+    --warm-light-color:rgb(238, 237, 235);
+    --bg-light-color: rgba(47, 47, 47, 0.04);
+    --bg-menu-color: rgba(225, 225, 225);
+    scroll-behavior: smooth;
+}
+
+/* GENERALS */
+body {
+    position: relative;
+    background-color: var(--bg-light-color);
+    scroll-behavior: smooth;
+}
+img {
+    display: block;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+    position: relative;
+}
+h1{
+    font-size: 58px;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-top: 50px;
+}
+p {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 29px;
+    color: var(--text-light-color);
+    margin-top: 25px;
+}
+
+nav{
+    background: gray;
+}
