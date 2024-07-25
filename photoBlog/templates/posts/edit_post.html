@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}{% endblock %}
+{% block title %}Edit Post{% endblock %}
 
 {% block content %}
-<h2>{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}</h2>
+<h2>Edit Post: "{{ post.title }}"</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Save Changes</button>
 </form>
 
-{% if form.instance.pk %}
 <h3>Delete Post</h3>
-<form method="post" action="{% url 'delete_post' form.instance.pk %}">
+<form method="post" action="{% url 'delete_post' post.id %}">
     {% csrf_token %}
     <button type="submit" class="btn btn-danger">Delete Post</button>
 </form>
-{% endif %}
 {% endblock %}

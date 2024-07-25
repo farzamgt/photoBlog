@@ -42,6 +42,7 @@ def post_detail(request, post_id):
         form = CommentForm()
     return render(request, 'posts/post_detail.html', {'post': post, 'comments': comments, 'form': form})
 
+
 @login_required
 def post_create(request):
     if request.method == 'POST':
@@ -71,6 +72,15 @@ def post_update(request, post_id):
     return render(request, 'posts/create_post.html', {'form': form})
 
 @login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        return redirect('post_detail', post_id=post.id)
+    category_id = post.category.id if post.category else 1  
+    post.delete()
+    return redirect('post_list', category_id=category_id)
+
+@login_required
 def add_comment(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     if request.method == 'POST':
@@ -98,4 +108,15 @@ def edit_comment(request, comment_id):
             return redirect('post_detail', post_id=comment.post.id)
     else:
         form = CommentForm(instance=comment)
-    return render(request, 'posts/edit_comment.html', {'form': form})
+    return render(request, 'posts/edit_comment.html', {'form': form, 'comment': comment})
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if comment.author == request.user:
+        post_id = comment.post.id
+        comment.delete()
+        return redirect('post_detail', post_id=post_id)
+    else:
+        return redirect('post_detail', post_id=comment.post.id)
+    

@@ -9,4 +9,10 @@
     {{ form.as_p }}
     <button type="submit">Save Changes</button>
 </form>
+
+<h3>Delete Comment</h3>
+<form method="post" action="{% url 'delete_comment' comment.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete Comment</button>
+</form>
 {% endblock %}

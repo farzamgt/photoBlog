@@ -1,14 +1,15 @@
 from django.urls import path
-from .views import category_list, post_list, post_detail, post_create, post_update, add_comment, edit_comment
+from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', category_list, name='category_list'),
-    path('category/<int:category_id>/', post_list, name='post_list'),
-    path('post/<int:post_id>/', post_detail, name='post_detail'),
-    path('post/new/', post_create, name='post_create'),  
-    path('post/<int:post_id>/edit/', post_update, name='post_update'),
-    path('post/<int:post_id>/comment/', add_comment, name='add_comment'),
-    path('comment/<int:comment_id>/edit/', edit_comment, name='edit_comment'),
+    path('', views.category_list, name='category_list'),
+    path('category/<int:category_id>/', views.post_list, name='post_list'),
+    path('post/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('post/new/', views.post_create, name='post_create'),  
+    path('post/<int:post_id>/edit/', views.post_update, name='post_update'),
+    path('comment/<int:comment_id>/edit/', views.edit_comment, name='edit_comment'),
+    path('comment/<int:comment_id>/delete/', views.delete_comment, name='delete_comment'),
+    path('post/<int:post_id>/delete/', views.delete_post, name='delete_post'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
