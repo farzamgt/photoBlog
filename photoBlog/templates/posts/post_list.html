@@ -4,6 +4,7 @@
 <ul>
     {% for post in posts %}
     <li>
+        <img src="{{ post.image.url }}" alt="{{ post.name }}" style="width: 200px">
         <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
         <p>{{ post.created_at }} by {{ post.author }}</p>
     </li>
