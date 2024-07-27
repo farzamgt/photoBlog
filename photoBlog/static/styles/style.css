@@ -1,4 +1,5 @@
 @import url(generals.css);
-@import url(mobile_styles.css);
-@import url(tablet_styles.css);
-@import url(monitor_styles.css);
+@import url(mobile_style.css);
+@import url(tablet_style.css);
+@import url(monitor_style.css);
+

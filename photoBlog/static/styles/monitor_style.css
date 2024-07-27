@@ -1,0 +1,21 @@
+@media (min-width: 1400px) {
+
+    .banner {
+        display: flex;
+        flex-direction: row; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center;
+        padding: 20px; 
+        width: 100%; 
+    }
+    .banner-content, .banner_image {
+        flex: 1;
+        max-width: 50%;
+    }
+    
+    .banner-image img {
+        max-width: 100%; 
+        height: auto; 
+    }
+}

@@ -1,44 +1,62 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<h1>Welcome to My Blog!</h1>
-{% if user.is_authenticated %}
-    <p>Welcome, {{ user.username }}!</p>
-    <a href="{% url 'logout' %}">Logout</a>
-    <p><a href="{% url 'post_create' %}">Create a New Post</a></p>
+<div class="container banner">
+    <div class="banner-content">
+        <h1>Welcome to photoBloge!</h1>
+        {% if user.is_authenticated %}
+            <h3>Good to See You, {{ user.username }}!</h3>
+            <p>We're glad to have you here. </p>
+            <p>Feel free to <a href="{% url 'post_create' %}">Create a New Post</a> or explore our categories to view other posts.</p>
+            
+        {% else %}
+            <p>Explore stunning photos and inspiring posts.</p>
+            <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'registration' %}">Register</a> to join our community and start sharing your own creations!</p>
+        
+        {% endif %}
+    </div>
+    <div class="banner_image">
+      <img src="{% static 'images/banner_background.jpg' %}" alt="Banner Background">
+    </div>    
+</div>
 
-    <!-- Display categories -->
-    <h2>Categories</h2>
-    <ul>
-        {% for category in categories %}
-            <li>
-                <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width: 300px">
-                <a href="{% url 'post_list' category_id=category.id %}">
-                    <p>{{ category.name }}</p> 
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    
-{% else %}
-    <p><a href="{% url 'login' %}">Login</a></p>
-    <p><a href="{% url 'registration' %}">Register</a></p>
-    
-    <!-- Display categories -->
-    <h2>Categories222</h2>
-    <ul>
-        {% for category in categories %}
-            <li>
-                <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width: 300px">
-                <a href="{% url 'login' %}?next={% url 'post_list' category_id=category.id %}">
-                    <p>{{ category.name }}</p>                
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endif %}
+<!-- Display categories -->
+<h2>Categories</h2>
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    {% for category in categories %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <img src="{{ category.image.url }}" class="d-block w-100" alt="{{ category.name }}" style="max-width: 200px;">
+        <div class="carousel-caption d-none d-md-block">
+          {% if user.is_authenticated %}
+          <a href="{% url 'post_list' category_id=category.id %}" class="text-white text-decoration-none">
+            <h5>{{ category.name }}</h5>
+          </a>
+          {% else %}
+          <a href="{% url 'login' %}?next={% url 'post_list' category_id=category.id %}" class="text-white text-decoration-none">
+            <h5>{{ category.name }}</h5>
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+{% endblock %}
+
+<!-- 
 <a href=""><i class="fas fa-trash"></i></i>delete</a>
 <a href=""><i class="fas fa-pen"></i>edit</a>
 <a href=""><i class="far fa-comment-alt"></i>comment</a>
@@ -49,7 +67,5 @@
 <a href=""><i class="fas fa-user"></i>user</a>
 <a href=""><i class="fas fa-sign-in-alt"></i>login</a>
 <a href=""><i class="fas fa-sign-out-alt"></i>logout</a>
-<a href=""><i class="fas fa-user-plus"></i>register</a>
-
-{% endblock %}
-
+<a href=""><i class="fas fa-user-plus"></i>register</a> 
+-->
