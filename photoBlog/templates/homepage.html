@@ -4,17 +4,17 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="container banner">
+<div class="banner">
     <div class="banner-content">
-        <h1>Welcome to photoBloge!</h1>
+        <h1>photoBloge</h1>
         {% if user.is_authenticated %}
-            <h3>Good to See You, {{ user.username }}!</h3>
-            <p>We're glad to have you here. </p>
-            <p>Feel free to <a href="{% url 'post_create' %}">Create a New Post</a> or explore our categories to view other posts.</p>
+            <h3>Good to See You, <span class="banner-user">{{ user.username }}!</span></h3>
+            <p class="banner-desc">We're glad to have you here in photoBlog. This platform showcases my skills in full-stack web development using Django, HTML, CSS, and Bootstrap. Here, you can register, log in, and explore posts from other users. Logged-in users can also create, edit, and delete their own posts and comments. Enjoy the experience and see what I've built!</p>
+            <p class="banner-link">Feel free to <a href="{% url 'post_create' %}">Create a New Post</a> or explore our categories to view other posts.</p>
             
         {% else %}
-            <p>Explore stunning photos and inspiring posts.</p>
-            <p><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'registration' %}">Register</a> to join our community and start sharing your own creations!</p>
+            <p class="banner-desc">We're glad to have you here in photoBlog. This platform showcases my skills in full-stack web development using Django, HTML, CSS, and Bootstrap. Here, you can register, log in, and explore posts from other users. Logged-in users can also create, edit, and delete their own posts and comments. Enjoy the experience and see what I've built!</p>
+            <p class="banner-link"><a href="{% url 'login' %}">Sign in</a> or <a href="{% url 'registration' %}">Register</a> to join our community and start sharing your own creations!</p>
         
         {% endif %}
     </div>
@@ -23,13 +23,15 @@
     </div>    
 </div>
 
+<span class="separator"></span>
+
 <!-- Display categories -->
-<h2>Categories</h2>
+<h2 id="categories" class="category-title">Categories</h2>
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     {% for category in categories %}
       <div class="carousel-item {% if forloop.first %}active{% endif %}">
-        <img src="{{ category.image.url }}" class="d-block w-100" alt="{{ category.name }}" style="max-width: 200px;">
+        <img src="{{ category.image.url }}" class="d-block w-100" alt="{{ category.name }}">
         <div class="carousel-caption d-none d-md-block">
           {% if user.is_authenticated %}
           <a href="{% url 'post_list' category_id=category.id %}" class="text-white text-decoration-none">

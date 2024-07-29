@@ -6,8 +6,8 @@
 }
 
 :root {
-    --primary-color: rgb(171, 181, 150);
-    --secondary-color: rgb(133, 133, 133);  
+    --primary-color: rgb(56, 149, 126);
+    --secondary-color: rgb(173, 108, 78);  
     --light-color: rgb(255, 255, 255); 
     --dark-color: rgb(47, 47, 47);
     --text-dark-color: rgb(77, 77, 77);
@@ -40,6 +40,7 @@ h1{
     font-weight: 700;
     color: var(--dark-color);
     margin-top: 50px;
+    text-decoration: underline;
 }
 p {
     font-size: 17px;
@@ -48,22 +49,49 @@ p {
     color: var(--text-light-color);
     margin-top: 25px;
 }
-
-nav{
-    background: gray;
+.navbar-brand{
+    color: var(--primary-color) !important;
+    margin: 0;
 }
-
+.banner-user {
+    color: var(--secondary-color) !important;
+}
+.nav-custom {
+    background: var(--warm-light-color);
+    border-bottom: 1px solid var(--dark-color) !important;
+    margin-bottom: 20px;
+}
+.separator {
+    display: block;
+    height: 1px; 
+    background-color: var(--dark-color); 
+    margin: 20px 0; 
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--dark-color)
+}
+.carousel-caption h5 {
+    color: var(--dark-color);
+    font-size: xx-large;
+    background: white;
+    margin: 0 auto;
+    border: 1px solid var(--dark-color);
+    border-radius: 3px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; 
+}
 footer {
     background-color: var(--bg-menu-color);
+    border-top: 1px solid var(--dark-color);
     color: var(--text-light-color);
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    padding: 20px;
     width: 100%;
+    margin-top: 20px;
 }
-
 footer p {
     margin: 0;
     font-family: var(--font-primary);
