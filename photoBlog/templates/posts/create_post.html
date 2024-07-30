@@ -1,20 +1,36 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block title %}{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}{% endblock %}
 
 {% block content %}
-<h2>{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-</form>
+<div class="container mt-4">
+    <h2>{% if form.instance.pk %}Edit Post{% else %}New Post{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data" class="mb-4">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {{ form.title|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.content|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.image|add_class:"form-control" }}
+        </div>
+        <div class="mb-3">
+            {{ form.category|add_class:"form-control" }}
+        </div>
 
-{% if form.instance.pk %}
-<h3>Delete Post</h3>
-<form method="post" action="{% url 'delete_post' form.instance.pk %}">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Delete Post</button>
-</form>
-{% endif %}
+        <button type="submit" class="btn btn-outline-secondary">Save Changes</button>
+    </form>
+
+    {% if form.instance.pk %}
+    <h3>Delete Post</h3>
+    <form method="post" action="{% url 'delete_post' form.instance.pk %}" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Post</button>
+    </form>
+    {% endif %}
+</div>
 {% endblock %}

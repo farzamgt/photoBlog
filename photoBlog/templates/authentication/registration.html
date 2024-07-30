@@ -4,8 +4,8 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h2>Register</h2>
+<div class="form-container">
+    <h2 class="title">Sign Up to Get Started</h2>
     <form method="post">
         {% csrf_token %}
         
@@ -32,9 +32,10 @@
                 {% endif %}
             </div>
         {% endfor %}
-        
-        <button type="submit" class="btn btn-primary">Register</button>
+        <div class="d-grid gap-2 col-4 mx-auto mt-5">
+            <button type="submit" class="btn btn-outline-secondary"><span class="btn-text">Sign Up!</span></button>
+        </div>  
     </form>
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    <p class="login-link">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
 </div>
 {% endblock %}

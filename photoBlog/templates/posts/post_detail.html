@@ -1,33 +1,62 @@
 {% extends 'base.html' %}
+{% load custom_filters %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
-{% block content %}
-<h2>{{ post.title }}</h2>
-<img src="{{ post.image.url }}" alt="{{ post.title }}">
-<p>{{ post.content }}</p>
-<p>Posted by {{ post.author }} on {{ post.created_at }}</p>
+<div class="post-container">
+    {% block content %}
+    <h2 class="title">{{ post.title }}</h2>
+    <div class="post-container">
+        <div class="post-image">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </div>
+        <div class="post-desc">
+            <h3>Post Description:</h3>
+            <p class="post-content">{{ post.content }}</p>
+            <div class="post-costum">
+                {% if post.author == user %}
+                    <a href="{% url 'post_update' post.id %}"> Edit or Delete Post</a>
+                {% endif %}
+                <p class="content-info">Posted by {{ post.author }} on {{ post.created_at }}</p>
+            </div>
+        </div>
+        
+        <span class="separator"></span>
 
-{% if post.author == user %}
-    <a href="{% url 'post_update' post.id %}">Edit Post</a>
-{% endif %}
-
-<h3>Comments:</h3>
-{% for comment in post.comments.all %}
-    <div>
-        <p>{{ comment.content }} - {{ comment.author }} ({{ comment.created_at }})</p>
-        {% if comment.author == user %}
-            <a href="{% url 'edit_comment' comment.id %}">Edit</a>
-        {% endif %}
+        <div class="post-comment">
+            <h3>Comments:</h3>
+            {% for comment in post.comments.all %}
+                <div>
+                    <p class="post-content">{{ comment.content }}</p>
+                    <div class="post-costum">
+                        {% if comment.author == user %}
+                            <a href="{% url 'edit_comment' comment.id %}">Edit or Delete Comment</a>
+                        {% endif %}
+                        <p class="content-info">Comment by: {{ comment.author }} on {{ comment.created_at }}</p>
+                    </div>
+                    {% if not forloop.last %}
+                        <span class="separator"></span>
+                    {% endif %}
+                </div>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+        </div>
     </div>
-{% empty %}
-    <p>No comments yet.</p>
-{% endfor %}
 
-<h3>Add Comment to "{{ post.title }}"</h3>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add Comment</button>
-</form>
-{% endblock %}
+    <span class="separator"></span>
+
+    <div class="add-comment">
+        <h3>Add Comment to "{{ post.title }}"</h3>
+        <form method="post" class="mb-3">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_content" class="form-label"></label>
+                {{ form.content|add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn btn-outline-secondary mt-5"><span class="loging">Add Comment</span> <i class="fas fa-plus"></i></button>
+        </form>
+    </div>    
+    {% endblock %}
+</div>
+

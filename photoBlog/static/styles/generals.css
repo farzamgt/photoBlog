@@ -11,7 +11,7 @@
     --dark-color: rgb(47, 47, 47);
     --text-dark-color: rgb(77, 77, 77);
     --text-light-color: rgb(153, 153, 153);
-    --title-color: rgb(153, 153, 153);
+    --cart-color: rgb(84 112 104 / 21%);
     --warm-light-color:rgb(238, 237, 235);
     --bg-light-color: rgba(47, 47, 47, 0.04);
     --bg-menu-color: rgba(225, 225, 225);
@@ -63,6 +63,20 @@ ul {
     list-style-type: none !important;
     padding-left: 0; 
 }
+.btn-text {
+    font-weight: 600;
+}
+.login-link {
+    color: var(--primary-color);
+    font-weight: 400;
+    margin-top: 30px;
+}
+.loging {
+    font-weight: 600;
+}
+.nav-link {
+    margin-right: 40px;
+}
 .navbar-brand{
     color: var(--primary-color) !important;
     margin: 0;
@@ -109,5 +123,16 @@ footer {
 footer p {
     margin: 0;
     font-family: var(--font-primary);
+}
+.post-cart{
+    background: var(--cart-color);
+}
+.post-content {
+    color: var(--text-dark-color);
+}
+.post-costum {
+    display: grid;
+    align-items: center;
+    justify-content: right;
 }
 

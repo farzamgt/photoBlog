@@ -59,8 +59,8 @@
         font-size: xx-large;
         width: 60%;
     }
-    /* post page */
-    .post-title {
+    /* post list */
+    .title {
         font-weight: 700;
         text-decoration: underline;
         margin: 30px;
@@ -74,16 +74,21 @@
         border: solid 1px;
         border-radius: 3px;
     }
-    .post-img, .post-info {
+    .post-img {
+        flex: 1;
+        max-width: 50%;
+        display: grid;
+    }
+    .post-info {
         flex: 1;
         max-width: 50%;
         display: grid;
     }
     .post-img img {
         max-width: 300px;
-        height: 90%;
+        height: 250px;
         object-fit: contain;
-        margin: 0 auto;
+        margin: auto;
     }
     .cart-title {
         margin-top: 20px;
@@ -97,5 +102,46 @@
         text-align: right;
         margin-right: 120px;
         font-weight: 600;
+    }
+    /* registration - log in */
+    .form-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+    /* post detail */
+    .post-container {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .post-image {
+        height: 600px;
+        max-width: 100%;
+        background: var(--cart-color);
+        padding: 20px 0;
+        margin: 0 auto;
+    }
+    .post-image img {
+        max-width: 750px;
+        height: 100%;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    .post-desc {
+        margin-top: 30px;
+    }
+    .content-info {
+        text-align: right ;
+        color: var(--secondary-color);
+        font-size: small;
+        margin: 0;
+    }
+    .post-comment {
+        width: 85%;
+        margin: 30px auto;
+    }
+    .add-comment {
+        width: 65%;
+        margin: 30px auto
     }
 }
