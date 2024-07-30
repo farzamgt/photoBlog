@@ -1,20 +1,25 @@
 @media (min-width: 1400px) {
+    /* navbar */
     .navbar-brand{
         padding: 0 50px;
     }
+    /* home page */
     .banner {
         display: flex;
-        flex-direction: row; 
-        align-items: center; 
-        justify-content: center; 
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        width: 100%; 
+        width: 80%;
+        height: 500px;
+        padding: 20px;
+        margin: 0 auto;
     }
-    .banner-content, .banner_image {
+    .banner-content, .banner-image {
         flex: 1;
         max-width: 50%;
         display: grid;
-        gap: 40px;
+        gap: 20px;
     }
     h1, h3 {
         text-align: left;
@@ -28,17 +33,21 @@
         margin: 50px 0;
     }    
     .banner-image img {
-        max-width: 100%; 
-        height: auto; 
+        max-width: 100%;
+        object-fit: contain;
+        margin: auto 0;
     }
     .banner-desc, .banner-link {
-        font-size: 20px;
+        font-size: 17px;
         font-weight: 400;
-        line-height: 40px;
+        line-height: 30px;
         color: var(--text-light-color);
-        margin: 0 71px 0 0;
         text-align: left;
-    }    
+    } 
+    .carousel-inner{
+        width: 80%;
+        margin: 0 auto;
+    }   
     .carousel-item img {
         max-width: 350px;
         height: 350px;
@@ -49,5 +58,44 @@
     .carousel-caption h5 {
         font-size: xx-large;
         width: 60%;
+    }
+    /* post page */
+    .post-title {
+        font-weight: 700;
+        text-decoration: underline;
+        margin: 30px;
+    }
+    .post-cart {
+        display: flex;
+        width: 80%;
+        height: 300px;
+        padding: 20px;
+        margin: 0 auto;
+        border: solid 1px;
+        border-radius: 3px;
+    }
+    .post-img, .post-info {
+        flex: 1;
+        max-width: 50%;
+        display: grid;
+    }
+    .post-img img {
+        max-width: 300px;
+        height: 90%;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+    .cart-title {
+        margin-top: 20px;
+    }
+    .post-author {
+        color: var(--primary-color);
+        font-size: larger;
+        font-weight: 600;
+    }
+    .view-post {
+        text-align: right;
+        margin-right: 120px;
+        font-weight: 600;
     }
 }

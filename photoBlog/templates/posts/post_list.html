@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Posts in {{ category.name }}</h2>
+<h2 class="post-title">Posts in {{ category.name }}</h2>
 <ul>
     {% for post in posts %}
-    <li>
-        <img src="{{ post.image.url }}" alt="{{ post.name }}" style="width: 200px">
-        <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-        <p>{{ post.created_at }} by {{ post.author }}</p>
+    <li class="post-cart">
+        <div class="post-img">
+            <img src="{{ post.image.url }}" alt="{{ post.name }}">
+        </div>
+        <div class="post-info">
+            <h3 class="cart-title">{{ post.title }}</h3>
+            <p>Posted by: <span class="post-author">{{ post.author }}</span></p>
+            <p>Created on: <span class="post-data">{{ post.created_at }}</span></p>                   
+            <div class="view-post">            
+                <span class="viwe-link"><a href="{% url 'post_detail' post.id %}">View post  <i class="fa-solid fa-arrow-right"></i></a></span>
+            </div>
+        </div> 
     </li>
+    {% if not forloop.last %}
+    <span class="separator"></span>
+    {% endif %}
     {% endfor %}
 </ul>
 {% endblock %}
