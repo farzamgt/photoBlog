@@ -1,0 +1,162 @@
+/* navbar */
+p {
+    font-size: 16px;
+}
+.navbar-brand{
+    padding: 0 20px;
+}
+.d-flex {
+    display: grid !important
+}
+.nav-link {
+    margin-left: 20px !important;
+}
+.logging-link {
+    margin-left: 0 !important;
+}
+/* home page */
+h1 {
+    font-size: 50px;
+    margin: 0 auto;
+}
+h2 {
+    margin: 0 auto;
+}
+h3 {
+    margin: 15px auto;
+}
+.banner {
+    display: grid;    
+    padding: 20px;
+    gap: 10PX;
+}
+.banner-content {
+    max-width: 100%;
+    display: grid;
+    gap: 20px;
+    text-align: center;
+}
+.banner-image {
+    flex: 1;
+    max-width: 100%;
+}
+.category-title {
+    text-decoration: underline;
+    font-size: xx-large;
+    margin: 50px auto;
+    text-align: center;
+}    
+.banner-image img {
+    max-width: 100%;
+    object-fit: contain;
+    margin: auto 0;
+}
+.banner-desc, .banner-link {
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--text-light-color);
+    text-align: center;
+} 
+.d-none{
+    display: inline !important;
+}
+.carousel-inner{
+    width: 60%;
+    height: 60%;
+    margin: 0 auto;
+}   
+.carousel-item img {
+    max-width: 200px;
+    height: 200px;
+    object-fit: inherit;
+    border-radius: 50%;
+    margin: 0 auto; 
+}
+.carousel-caption h5 {
+    font-size: large;
+    width: 100%;
+}
+/* post list */
+.title {
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 30px auto;
+    text-align: center;
+}
+.post-cart {
+    display: grid;
+    width: 90%;
+    padding: 20px;
+    margin: 0 auto;
+    border: solid 1px;
+    border-radius: 3px;
+}
+.post-img {
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto;
+}
+.post-info {
+    max-width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: left;
+}
+.post-img img {
+    max-width: 300px;
+    height: 250px;
+    object-fit: contain;
+    margin: 10px auto;
+}
+.cart-title {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.post-author {
+    color: var(--primary-color);
+    font-size: larger;
+    font-weight: 600;
+}
+.view-post {
+    text-align: right;
+    font-weight: 600;
+}
+/* registration - log in */
+.form-container {
+    width: 90%;
+    margin: 0 auto;
+}
+/* post detail */
+.post-container {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+.post-image {
+    max-width: 100%;
+}
+.post-image img {
+    max-width: 750px;
+    height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+}
+.post-desc {
+    margin-top: 30px;
+}
+.content-info {
+    text-align: right ;
+    color: var(--secondary-color);
+    font-size: 12px;
+    margin: 0;
+}
+.post-comment {
+    width: 100%;
+    margin: 20px auto;
+}
+.add-comment {
+    width: 90%;
+    margin: 0 auto
+}

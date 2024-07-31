@@ -12,12 +12,12 @@
             <label for="id_content" class="form-label"></label>
             {{ form.content|add_class:"form-control" }}
         </div>
-        <button type="submit" class="btn btn-outline-secondary me-2"><span class="loging">Save Changes</span> <i class="far fa-hdd"></i></button>
+        <button type="submit" class="btn btn-outline-secondary me-2 mb-3 col-7"><span class="loging">Save Changes</span> <i class="far fa-hdd"></i></button>
     </form>
 
     <form method="post" action="{% url 'delete_comment' comment.id %}" class="d-inline">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-secondary"><span class="loging">Delete Comment</span> <i class="fas fa-trash"></i></button>
+        <button type="submit" class="btn btn-outline-secondary col-7"><span class="loging">Delete Comment</span> <i class="fas fa-trash"></i></button>
     </form>
 </div>
 {% endblock %}

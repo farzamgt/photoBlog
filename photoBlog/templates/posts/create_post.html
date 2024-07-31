@@ -25,13 +25,13 @@
             <label for="id_content" class="form-label">Category</label>
             {{ form.category|add_class:"form-control" }}
         </div>
-        <button type="submit" class="btn btn-outline-secondary me-3"><span class="loging">Save Changes</span> <i class="far fa-hdd"></i></button>
+        <button type="submit" class="btn btn-outline-secondary me-3 mb-3 col-6"><span class="loging">Save Changes</span> <i class="far fa-hdd"></i></button>
     </form>
 
     {% if form.instance.pk %}
     <form method="post" action="{% url 'delete_post' form.instance.pk %}" class="d-inline">
         {% csrf_token %}
-        <button type="submit" class="btn btn-outline-secondary"><span class="loging">Delete Post</span> <i class="fas fa-trash"></i></button>
+        <button type="submit" class="btn btn-outline-secondary me-3 mb-3 col-6"><span class="loging">Delete Post</span> <i class="fas fa-trash"></i></button>
     </form>
     {% endif %}
 </div>

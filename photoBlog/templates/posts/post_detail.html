@@ -17,7 +17,7 @@
                 {% if post.author == user %}
                     <a href="{% url 'post_update' post.id %}"> Edit or Delete Post</a>
                 {% endif %}
-                <p class="content-info">Posted by {{ post.author }} on {{ post.created_at }}</p>
+                <p class="content-info">Posted by {{ post.author }} | {{ post.created_at }}</p>
             </div>
         </div>
         
@@ -47,7 +47,7 @@
     <span class="separator"></span>
 
     <div class="add-comment">
-        <h3>Add Comment to "{{ post.title }}"</h3>
+        <h3>Add Your Comment: </h3>
         <form method="post" class="mb-3">
             {% csrf_token %}
             <div class="form-group">

@@ -41,10 +41,10 @@
                 <form class="d-flex">
                     <span class="d-flex nav-item">
                         {% if user.is_authenticated %}
-                            <a class="nav-link" href="{% url 'logout' %}"><span class="loging">Sign Out </span><i class="fas fa-sign-out-alt"></i></a>
+                            <a class="nav-link logging-link" href="{% url 'logout' %}"><span class="loging">Sign Out </span><i class="fas fa-sign-out-alt"></i></a>
                         {% else %}
-                            <a class="nav-link" href="{% url 'login' %}"><span class="loging">Sign In </span><i class="fas fa-sign-in-alt"></i></a>
-                            <a class="nav-link" href="{% url 'registration' %}"><span class="loging">Sign Up </span><i class="fas fa-user-plus"></i></a>
+                            <a class="nav-link logging-link" href="{% url 'login' %}"><span class="loging">Sign In </span><i class="fas fa-sign-in-alt"></i></a>
+                            <a class="nav-link logging-link" href="{% url 'registration' %}"><span class="loging">Sign Up </span><i class="fas fa-user-plus"></i></a>
                         {% endif %}
                     </span>
                 </form>
@@ -59,7 +59,7 @@
         </div>
     </main>
     <footer>
-        <p>&copy; Farzam, Summer 2024</p>
+        <p>&copy; photoBlog | Full-stack development by Farzam, Summer 2024</p>
     </footer>    
 
     <!-- Bootstrap JS and dependencies -->

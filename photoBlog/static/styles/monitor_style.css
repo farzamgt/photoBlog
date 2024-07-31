@@ -3,6 +3,9 @@
     .navbar-brand{
         padding: 0 50px;
     }
+    .d-flex {
+        display: flex !important
+    }
     /* home page */
     .banner {
         display: flex;
@@ -143,5 +146,8 @@
     .add-comment {
         width: 65%;
         margin: 30px auto
+    }
+    button {
+        margin: 0 auto;
     }
 }
