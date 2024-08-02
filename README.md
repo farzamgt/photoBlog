@@ -26,29 +26,31 @@ Bootstrap:
 
 - Clone the repository:
 
-git clone https://github.com/farzamgt/photoBlog.git
+`git clone https://github.com/farzamgt/photoBlog.git`
 
 - Navigate to the project directory:
 
-cd photoBlog
+`cd photoBlog`
 
 - Install the required dependencies:
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 - Apply the migration to your database by running:
 
-python manage.py migrate
+`python manage.py migrate`
 
 - Run the development server:
 
-python manage.py runserver
+`python manage.py runserver`
 
 &nbsp;&nbsp;&nbsp;&nbsp;You can create a superuser to act as the admin of this blog. The superuser can manage the blog by adding more categories, managing users, and overseeing posts.
 
 - Execute the following command to create a superuser:
 
-python manage.py createsuperuser
+`python manage.py createsuperuser`
+
+&nbsp;&nbsp;&nbsp;&nbsp;You can access the admin panel at http://localhost:8000/admin
 
 ### Usage
 

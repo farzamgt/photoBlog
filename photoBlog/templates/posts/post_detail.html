@@ -32,7 +32,7 @@
                         {% if comment.author == user %}
                             <a href="{% url 'edit_comment' comment.id %}">Edit or Delete Comment</a>
                         {% endif %}
-                        <p class="content-info">Comment by: {{ comment.author }} on {{ comment.created_at }}</p>
+                        <p class="content-info">Commented by: {{ comment.author }} on {{ comment.created_at }}</p>
                     </div>
                     {% if not forloop.last %}
                         <span class="separator"></span>
