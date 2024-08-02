@@ -13,7 +13,7 @@ def category_list(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('category_list')  # Redirect to the category list after creating a post
+            return redirect('category_list')
     else:
         form = PostForm()
 

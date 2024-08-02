@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load auth_filters %}  <!-- Load the custom filters here -->
+{% load auth_filters %}
 
 {% block title %}Login{% endblock %}
 
@@ -21,7 +21,7 @@
         {% for field in form %}
             <div class="mb-3">
                 <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                {{ field|add_class:"form-control" }}  <!-- Use custom filter -->
+                {{ field|add_class:"form-control" }}
                 {% if field.errors %}
                     <div class="invalid-feedback">
                         {% for error in field.errors %}
