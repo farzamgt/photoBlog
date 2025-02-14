@@ -36,6 +36,10 @@ Bootstrap:
 
 `pip install -r requirements.txt`
 
+- Navigate to the app directory:
+
+`cd mamacare_store_project`
+
 - Apply the migration to your database by running:
 
 `python manage.py migrate`
